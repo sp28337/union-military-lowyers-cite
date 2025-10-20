@@ -8,10 +8,15 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="relative">
+              <img 
+                src="/assets/logo-white.png" 
+                alt="Союз Военных Юристов" 
+                className="h-12 w-auto object-contain"
+              />
+              {/* <div className="relative">
                 <Shield className="h-8 w-8 text-green-400" />
                 <Scale className="h-4 w-4 text-green-300 absolute top-2 left-2" />
-              </div>
+              </div> */}
               <div>
                 <h3 className="text-xl font-bold">СОЮЗ ВОЕННЫХ ЮРИСТОВ</h3>
                 <p className="text-green-400 text-sm">Защита прав военнослужащих</p>

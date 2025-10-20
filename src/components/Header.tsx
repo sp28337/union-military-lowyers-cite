@@ -6,14 +6,14 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm border-b border-green-100">
+    <header className="bg-white shadow-sm border-b border-green-100 fixed top-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-4">
             <img 
-              src="/assets/logo.png" 
+              src="/assets/logo-green.png" 
               alt="Союз Военных Юристов" 
-              className="h-12 w-12 object-contain"
+              className="h-12 w-auto object-contain"
             />
             <div>
               <h1 className="text-xl font-bold text-gray-900">СОЮЗ ВОЕННЫХ ЮРИСТОВ</h1>

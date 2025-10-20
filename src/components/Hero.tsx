@@ -3,12 +3,12 @@ import { Shield, Scale, Phone } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-br from-green-50 to-green-100 py-20">
+    <section className="bg-gradient-to-br from-green-50 to-green-100 pt-[10rem] pb-[5rem]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="flex justify-center mb-8">
              <img 
-              src="/assets/logo.png" 
+              src="/assets/logo-green.png" 
               alt="Союз Военных Юристов" 
               className="h-40 w-40 object-contain"
             />
@@ -33,9 +33,9 @@ export default function Hero() {
               <Phone className="mr-2 h-5 w-5" />
               Получить консультацию
             </Button>
-            <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 text-lg px-8 py-4">
+            {/* <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 text-lg px-8 py-4">
               Наши услуги
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
