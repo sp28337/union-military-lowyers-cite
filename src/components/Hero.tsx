@@ -3,7 +3,7 @@ import { Shield, Scale, Phone } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="bg-green-950 pt-[10rem] pb-[5rem]">
+    <section className="bg-gradient-to-br from-green-957 to-green-950 pt-[10rem] pb-[5rem]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="flex justify-center mb-8">
