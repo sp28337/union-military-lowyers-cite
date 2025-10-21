@@ -59,7 +59,7 @@ export default function Header() {
               <a href="#contact" className="text-gray-700 hover:text-green-950 transition-colors">
                 Контакты
               </a>
-              <Button className="bg-green-950 hover:bg-green-953 w-full">
+              <Button className="bg-green-951 hover:bg-green-955 w-full">
                 Консультация
               </Button>
             </nav>
