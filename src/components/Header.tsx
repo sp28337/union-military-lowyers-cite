@@ -11,28 +11,28 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-4">
             <img 
-              src="/assets/logo-green.png" 
+              src="/assets/logo-original.png" 
               alt="Союз Военных Юристов" 
               className="h-12 w-auto object-contain"
             />
             <div>
-              <h1 className="text-xl font-bold text-gray-900">СОЮЗ ВОЕННЫХ ЮРИСТОВ</h1>
-              <p className="text-sm text-green-600">Защита прав военнослужащих</p>
+              <h1 className="text-xl font-medium text-gray-900">СОЮЗ ВОЕННЫХ ЮРИСТОВ</h1>
+              <p className="text-sm text-green-950 -mt-[5px]">Защита прав военнослужащих</p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-gray-700 hover:text-green-600 transition-colors">
+            <a href="#services" className="text-gray-700 hover:text-green-950 transition-colors">
               Услуги
             </a>
-            <a href="#about" className="text-gray-700 hover:text-green-600 transition-colors">
+            <a href="#about" className="text-gray-700 hover:text-green-950 transition-colors">
               О нас
             </a>
-            <a href="#contact" className="text-gray-700 hover:text-green-600 transition-colors">
+            <a href="#contact" className="text-gray-700 hover:text-green-950 transition-colors">
               Контакты
             </a>
-            <Button className="bg-green-600 hover:bg-green-700">
+            <Button className="bg-green-951 hover:bg-green-955">
               Консультация
             </Button>
           </nav>
@@ -50,16 +50,16 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              <a href="#services" className="text-gray-700 hover:text-green-600 transition-colors">
+              <a href="#services" className="text-gray-700 hover:text-green-950 transition-colors">
                 Услуги
               </a>
-              <a href="#about" className="text-gray-700 hover:text-green-600 transition-colors">
+              <a href="#about" className="text-gray-700 hover:text-green-950 transition-colors">
                 О нас
               </a>
-              <a href="#contact" className="text-gray-700 hover:text-green-600 transition-colors">
+              <a href="#contact" className="text-gray-700 hover:text-green-950 transition-colors">
                 Контакты
               </a>
-              <Button className="bg-green-600 hover:bg-green-700 w-full">
+              <Button className="bg-green-950 hover:bg-green-953 w-full">
                 Консультация
               </Button>
             </nav>

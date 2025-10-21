@@ -44,15 +44,15 @@ export default function About() {
             </p>
             <div className="space-y-3">
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                <CheckCircle className="h-5 w-5 text-green-957 mr-3" />
                 <span className="text-gray-700">Индивидуальный подход к каждому клиенту</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                <CheckCircle className="h-5 w-5 text-green-957 mr-3" />
                 <span className="text-gray-700">Конфиденциальность и профессионализм</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                <CheckCircle className="h-5 w-5 text-green-957 mr-3" />
                 <span className="text-gray-700">Работа на результат</span>
               </div>
             </div>
@@ -62,11 +62,11 @@ export default function About() {
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
-                <Card key={index} className="text-center p-6 border-green-100">
+                <Card key={index} className="text-center p-6 border-green-953">
                   <CardContent className="p-0">
                     <div className="flex justify-center mb-4">
-                      <div className="p-3 bg-green-100 rounded-full">
-                        <IconComponent className="h-8 w-8 text-green-600" />
+                      <div className="p-3 bg-green-950 rounded-full">
+                        <IconComponent className="h-8 w-8 text-green-952" />
                       </div>
                     </div>
                     <div className="text-3xl font-bold text-gray-900 mb-2">

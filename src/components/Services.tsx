@@ -66,7 +66,7 @@ export default function Services() {
     <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="font-normal text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Наши услуги
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -78,14 +78,14 @@ export default function Services() {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-green-100 hover:border-green-300">
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-green-953 hover:border-green-954">
                 <CardHeader className="text-center pb-4">
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-green-100 rounded-full">
-                      <IconComponent className="h-8 w-8 text-green-600" />
+                    <div className="p-3 bg-green-950 rounded-full">
+                      <IconComponent className="h-8 w-8 text-green-952" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg font-semibold text-gray-900">
+                  <CardTitle className="text-lg font-medium text-gray-900">
                     {service.title}
                   </CardTitle>
                 </CardHeader>
@@ -96,7 +96,7 @@ export default function Services() {
                   <ul className="text-xs text-gray-500 space-y-1">
                     {service.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-center">
-                        <div className="w-1 h-1 bg-green-500 rounded-full mr-2"></div>
+                        <div className="w-1 h-1 bg-green-950 rounded-full mr-2"></div>
                         {item}
                       </li>
                     ))}

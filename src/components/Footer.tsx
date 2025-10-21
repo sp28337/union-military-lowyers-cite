@@ -1,4 +1,4 @@
-import { Shield, Scale, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -13,13 +13,9 @@ export default function Footer() {
                 alt="Союз Военных Юристов" 
                 className="h-12 w-auto object-contain"
               />
-              {/* <div className="relative">
-                <Shield className="h-8 w-8 text-green-400" />
-                <Scale className="h-4 w-4 text-green-300 absolute top-2 left-2" />
-              </div> */}
               <div>
                 <h3 className="text-xl font-bold">СОЮЗ ВОЕННЫХ ЮРИСТОВ</h3>
-                <p className="text-green-400 text-sm">Защита прав военнослужащих</p>
+                <p className="text-gray-400 -mt-[5px] text-sm">Защита прав военнослужащих</p>
               </div>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
@@ -28,15 +24,15 @@ export default function Footer() {
             </p>
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2 text-green-400" />
+                <Phone className="h-4 w-4 mr-2 text-white" />
                 <span>+7 (XXX) XXX-XX-XX</span>
               </div>
               <div className="flex items-center">
-                <Mail className="h-4 w-4 mr-2 text-green-400" />
+                <Mail className="h-4 w-4 mr-2 text-white" />
                 <span>info@military-lawyers.ru</span>
               </div>
               <div className="flex items-center">
-                <MapPin className="h-4 w-4 mr-2 text-green-400" />
+                <MapPin className="h-4 w-4 mr-2 text-white" />
                 <span>г. Москва, ул. Примерная, д. 1</span>
               </div>
             </div>
@@ -44,26 +40,26 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-green-400">Услуги</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">Услуги</h4>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-green-400 transition-colors">Жилищные споры</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Денежное довольствие</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Отпуска и отдых</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Увольнение с службы</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Дисциплинарные взыскания</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Права семей</a></li>
+              <li><a href="#" className="hover:text-green-950 transition-colors">Жилищные споры</a></li>
+              <li><a href="#" className="hover:text-green-950 transition-colors">Денежное довольствие</a></li>
+              <li><a href="#" className="hover:text-green-950 transition-colors">Отпуска и отдых</a></li>
+              <li><a href="#" className="hover:text-green-950 transition-colors">Увольнение с службы</a></li>
+              <li><a href="#" className="hover:text-green-950 transition-colors">Дисциплинарные взыскания</a></li>
+              <li><a href="#" className="hover:text-green-950 transition-colors">Права семей</a></li>
             </ul>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-green-400">Информация</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">Информация</h4>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#about" className="hover:text-green-400 transition-colors">О нас</a></li>
-              <li><a href="#services" className="hover:text-green-400 transition-colors">Услуги</a></li>
-              <li><a href="#contact" className="hover:text-green-400 transition-colors">Контакты</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Политика конфиденциальности</a></li>
-              <li><a href="#" className="hover:text-green-400 transition-colors">Пользовательское соглашение</a></li>
+              <li><a href="#about" className="hover:text-green-950 transition-colors">О нас</a></li>
+              <li><a href="#services" className="hover:text-green-950 transition-colors">Услуги</a></li>
+              <li><a href="#contact" className="hover:text-green-950 transition-colors">Контакты</a></li>
+              <li><a href="#" className="hover:text-green-950 transition-colors">Политика конфиденциальности</a></li>
+              <li><a href="#" className="hover:text-green-950 transition-colors">Пользовательское соглашение</a></li>
             </ul>
           </div>
         </div>

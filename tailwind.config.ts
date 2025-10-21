@@ -16,6 +16,16 @@ export default {
     },
     extend: {
       colors: {
+        green: {
+          950: 'rgb(149,171,99)',
+          951: 'rgba(73,85,45,0.9)',
+          952: 'rgb(73,85,45)',
+          953: 'rgba(149,171,99,0.3)',
+          954: 'rgba(149,171,99,0.7)',
+          955: 'rgba(73,85,45,0.5)',
+          956: 'rgba(73,85,45,0.7)',
+          957: 'rgba(149,171,99,0.9)',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

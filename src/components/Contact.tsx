@@ -21,11 +21,11 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Info */}
           <div className="space-y-6">
-            <Card className="border-green-100">
+            <Card className="border-green-953">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="p-2 bg-green-100 rounded-full mr-4">
-                    <Phone className="h-5 w-5 text-green-600" />
+                  <div className="p-2 bg-green-950 rounded-full mr-4">
+                    <Phone className="h-5 w-5 text-green-952" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Телефон</h3>
@@ -35,11 +35,11 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="border-green-100">
+            <Card className="border-green-953">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="p-2 bg-green-100 rounded-full mr-4">
-                    <Mail className="h-5 w-5 text-green-600" />
+                  <div className="p-2 bg-green-950 rounded-full mr-4">
+                    <Mail className="h-5 w-5 text-green-952" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
@@ -49,11 +49,11 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="border-green-100">
+            <Card className="border-green-953">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="p-2 bg-green-100 rounded-full mr-4">
-                    <MapPin className="h-5 w-5 text-green-600" />
+                  <div className="p-2 bg-green-950 rounded-full mr-4">
+                    <MapPin className="h-5 w-5 text-green-952" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Адрес</h3>
@@ -63,11 +63,11 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="border-green-100">
+            <Card className="border-green-953">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="p-2 bg-green-100 rounded-full mr-4">
-                    <Clock className="h-5 w-5 text-green-600" />
+                  <div className="p-2 bg-green-950 rounded-full mr-4">
+                    <Clock className="h-5 w-5 text-green-952" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Режим работы</h3>
@@ -81,7 +81,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="border-green-100">
+            <Card className="border-green-953">
               <CardHeader>
                 <CardTitle className="text-2xl text-gray-900">
                   Получить консультацию
@@ -128,7 +128,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button className="w-full bg-green-600 hover:bg-green-700 text-lg py-3">
+                <Button className="w-full bg-green-951 hover:bg-green-955 text-lg py-3">
                   Отправить заявку
                 </Button>
 
