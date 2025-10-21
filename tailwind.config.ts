@@ -15,6 +15,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        forum: ['Forum', 'serif'],
+      },
       colors: {
         green: {
           950: 'rgb(149,171,99)',
