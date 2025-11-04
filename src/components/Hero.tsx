@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Shield, Scale, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
 export default function Hero() {
   return (
