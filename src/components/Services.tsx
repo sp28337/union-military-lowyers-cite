@@ -1,11 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { 
-  Home, 
-  DollarSign, 
+  Home,
+  LucideUserSearch, 
+  Cross,
+  RussianRuble,
   Umbrella, 
   UserX, 
   MapPin, 
-  FileX, 
+  Zap, 
   Users, 
   Shield 
 } from 'lucide-react';
@@ -18,45 +20,51 @@ const services = [
     items: ["Военная ипотека", "Сертификаты", "Служебное жилье", "Компенсации", "Субсидии"]
   },
   {
-    icon: DollarSign,
-    title: "Денежное довольствие",
-    description: "Оспаривание невыплаты денежного довольствия и связанных выплат",
+    icon: RussianRuble,
+    title: "Оспаривание невыплаты денежного довольствия",
+    description: "",
     items: ["Невыплата довольствия", "Задержка выплат", "Неправильный расчет", "Компенсации"]
   },
   {
     icon: Umbrella,
-    title: "Отпуска и отдых",
-    description: "Оспаривание непредоставления отдыха и отпусков военнослужащим",
+    title: "Оспаривание непредоставления отдыха(отпуска)",
+    description: "",
     items: ["Непредоставление отпуска", "Нарушение графика", "Компенсация за отпуск"]
   },
   {
     icon: UserX,
-    title: "Увольнение с службы",
-    description: "Оспаривание незаконного увольнения с военной службы",
+    title: "Увольнение с военной службы",
+    description: "",
     items: ["Незаконное увольнение", "Нарушение процедуры", "Восстановление на службе"]
   },
   {
-    icon: MapPin,
-    title: "Переводы по службе",
-    description: "Оспаривание незаконного перевода к новому месту службы",
+    icon: Zap,
+    title: "Обжалование действий/бездействия командования",
+    description: "",
     items: ["Незаконный перевод", "Нарушение условий", "Компенсации при переводе"]
   },
   {
-    icon: FileX,
-    title: "Дисциплинарные взыскания",
-    description: "Оспаривание незаконных дисциплинарных взысканий",
+    icon: Cross,
+    title: "Обжалование ВВК и получение выплат за ранение",
+    description: "",
     items: ["Незаконные взыскания", "Нарушение процедуры", "Снятие взысканий"]
   },
   {
     icon: Users,
-    title: "Права семей военнослужащих",
-    description: "Защита прав членов семьи военнослужащих",
+    title: "Защита прав членов семьи военнослужащих, лишение/признание права на выплаты в связи с гибелью военнослужащего",
+    description: "",
     items: ["Социальные гарантии", "Жилищные права", "Медицинское обеспечение"]
   },
   {
     icon: Shield,
-    title: "Призывники и мобилизованные",
-    description: "Защита прав призывников и мобилизованных граждан",
+    title: "Защита прав призывников и мобилизованных",
+    description: "",
+    items: ["Права призывников", "Мобилизация", "Социальные гарантии", "Льготы"]
+  },
+  {
+    icon: LucideUserSearch,
+    title: "Помощь в поисках пропавших военнослужащих",
+    description: "",
     items: ["Права призывников", "Мобилизация", "Социальные гарантии", "Льготы"]
   }
 ];
@@ -93,14 +101,14 @@ export default function Services() {
                   <p className="text-gray-600 text-sm mb-4">
                     {service.description}
                   </p>
-                  <ul className="text-xs text-gray-500 space-y-1">
+                  {/* <ul className="text-xs text-gray-500 space-y-1">
                     {service.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-center">
                         <div className="w-1 h-1 bg-green-950 rounded-full mr-2"></div>
                         {item}
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </CardContent>
               </Card>
             );
