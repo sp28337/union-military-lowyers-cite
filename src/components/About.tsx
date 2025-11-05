@@ -58,27 +58,27 @@ export default function About() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <Card key={index} className="text-center p-6 border-green-953">
+          <div className="gap-6 h-full">
+            {/* {stats.map((stat, index) => {
+              const IconComponent = stat.icon; */}
+              {/* return ( */}
+                <Card className="text-center p-6 border-green-953 h-full">
                   <CardContent className="p-0">
                     <div className="flex justify-center mb-4">
-                      <div className="p-3 bg-green-950 rounded-full">
+                      {/* <div className="p-3 bg-green-950 rounded-full">
                         <IconComponent className="h-8 w-8 text-green-952" />
-                      </div>
+                      </div> */}
                     </div>
                     <div className="text-3xl font-normal text-gray-900 mb-2">
-                      {stat.number}
+                      {/* {stat.number} */}
                     </div>
                     <div className="text-gray-600 text-sm">
-                      {stat.label}
+                      {/* {stat.label} */}
                     </div>
                   </CardContent>
                 </Card>
-              );
-            })}
+              {/* );
+            })} */}
           </div>
         </div>
       </div>
