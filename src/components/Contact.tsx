@@ -45,13 +45,14 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(
+      'http://localhost:3001/api/contact', 
+      {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
-      });
+      }
+    );
 
       if (response.ok) {
         setMessageStatus('✅ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
