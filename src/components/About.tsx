@@ -30,55 +30,37 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-normal text-gray-900 mb-6">
+            <h2 className="text-center text-3xl md:text-4xl font-normal text-gray-900 mb-6">
               О Нас
             </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Мы — профессиональное объединение юристов, специализирующихся на защите прав 
-              военнослужащих, членов их семей, призывников и мобилизованных граждан.
+            <p className="text-gray-600 mb-6">
+              Союз военных юристов — команда специалистов в области военного права.
             </p>
             <p className="text-gray-600 mb-6">
-              Наша команда обладает глубокими знаниями военного права и многолетним опытом 
-              успешного решения сложных правовых вопросов. Мы понимаем специфику военной 
-              службы и готовы защитить ваши интересы на всех уровнях.
+              Мы применяем нормы военного законодательства на практике, защищая права призывников, военнослужащих и членов их семей.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-957 mr-3" />
-                <span className="text-gray-700">Индивидуальный подход к каждому клиенту</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-957 mr-3" />
-                <span className="text-gray-700">Конфиденциальность и профессионализм</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-957 mr-3" />
-                <span className="text-gray-700">Работа на результат</span>
-              </div>
-            </div>
+            <p className="text-gray-600 mb-6">
+              Каждое решение основано на опыте и точной юридической оценке ситуации без лишних обещаний и навязывания услуг.
+            </p>
+            <p className="text-gray-600 mb-6">
+              Если ваши права нарушены, вы столкнулись с несправедливостью или нужна консультация по вопросам призыва, службы или защиты семьи — мы найдём решение.
+            </p>
+            <p className="text-gray-600 mb-6">
+              Мы гарантируем профессиональный и ответственный подход, обеспечивая надёжную защиту Ваших прав.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <Card key={index} className="text-center p-6 border-green-953">
-                  <CardContent className="p-0">
-                    <div className="flex justify-center mb-4">
-                      <div className="p-3 bg-green-950 rounded-full">
-                        <IconComponent className="h-8 w-8 text-green-952" />
-                      </div>
-                    </div>
-                    <div className="text-3xl font-normal text-gray-900 mb-2">
-                      {stat.number}
-                    </div>
-                    <div className="text-gray-600 text-sm">
-                      {stat.label}
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="gap-6 h-full">
+            <Card className="text-center p-6 border-green-953 h-full">
+              <CardContent className="p-0">
+                <div className="flex justify-center mb-4">
+                </div>
+                <div className="text-3xl font-normal text-gray-900 mb-2">
+                </div>
+                <div className="text-gray-600 text-sm">
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

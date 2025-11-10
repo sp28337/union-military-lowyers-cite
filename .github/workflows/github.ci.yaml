@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "dev"]
+  pull_request:
+    branches: ["main", "dev"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Lint
+      run: npm run lint
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: union-military-lowyers
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to server via SSH
+      run: |
+        ssh -o StrictHostKeyChecking=no sp28337@109.73.207.195 -p ${{ secrets.PORT }} '
+          cd ~/union-military-lowyers &&
+          export NVM_DIR="$HOME/.nvm" 
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm use 22.14.0 &&
+          git switch dev &&
+          git pull &&
+          npm install pm2 -g &&
+          pm2 update &&
+          pm2 stop union-military-lowyers &&
+          npm run build &&
+          pm2 start union-military-lowyers
+        '
