@@ -1,12 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { 
   Home,
   LucideUserSearch, 
   Cross,
   RussianRuble,
-  Umbrella, 
   UserX, 
-  MapPin, 
   Zap, 
   Users, 
   Shield 
@@ -16,7 +14,7 @@ const services = [
   {
     icon: Home,
     title: "Жилищные споры",
-    description: "Военная ипотека, сертификаты, служебное жилье, компенсации, субсидии и иные жилищные вопросы",
+    description: "",
     items: ["Военная ипотека", "Сертификаты", "Служебное жилье", "Компенсации", "Субсидии"]
   },
   {
@@ -24,12 +22,6 @@ const services = [
     title: "Оспаривание невыплаты денежного довольствия",
     description: "",
     items: ["Невыплата довольствия", "Задержка выплат", "Неправильный расчет", "Компенсации"]
-  },
-  {
-    icon: Umbrella,
-    title: "Оспаривание непредоставления отдыха(отпуска)",
-    description: "",
-    items: ["Непредоставление отпуска", "Нарушение графика", "Компенсация за отпуск"]
   },
   {
     icon: UserX,
@@ -71,22 +63,19 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-10 bg-white md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-normal text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Наши услуги
+        <div className="mb-8 text-center md:mb-16">
+          <h2 className="font-normal text-3xl md:text-4xl text-gray-900 mb-4">
+            Услуги
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Комплексная юридическая помощь военнослужащим и их семьям по всем вопросам военного права
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-green-953 hover:border-green-954">
+              <Card key={index} className="min-h-[220px] flex flex-col justify-center hover:shadow-lg transition-shadow duration-300 border-green-953 hover:border-green-954">
                 <CardHeader className="text-center pb-4">
                   <div className="flex justify-center mb-4">
                     <div className="p-3 bg-green-950 rounded-full">
@@ -97,19 +86,6 @@ export default function Services() {
                     {service.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {service.description}
-                  </p>
-                  {/* <ul className="text-xs text-gray-500 space-y-1">
-                    {service.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-center">
-                        <div className="w-1 h-1 bg-green-950 rounded-full mr-2"></div>
-                        {item}
-                      </li>
-                    ))}
-                  </ul> */}
-                </CardContent>
               </Card>
             );
           })}

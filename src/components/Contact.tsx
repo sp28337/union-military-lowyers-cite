@@ -87,77 +87,11 @@ export default function Contact() {
             Свяжитесь с нами
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Получите профессиональную консультацию по вашему вопросу. 
-            Мы готовы помочь защитить ваши права.
+            Получите бесплатную консультацию по вашему вопросу.
           </p>
         </div>
 
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <Card className="border-green-953">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="p-2 bg-green-950 rounded-full mr-4">
-                    <Phone className="h-5 w-5 text-green-952" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Телефон</h3>
-                    <p className="text-gray-600">+7 (XXX) XXX-XX-XX</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-
-            <Card className="border-green-953">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="p-2 bg-green-950 rounded-full mr-4">
-                    <Mail className="h-5 w-5 text-green-952" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">sp28337@yandex.ru</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-
-            <Card className="border-green-953">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="p-2 bg-green-950 rounded-full mr-4">
-                    <MapPin className="h-5 w-5 text-green-952" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Адрес</h3>
-                    <p className="text-gray-600">г. Нижний Новгород, ул. Примерная, д. 1</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-
-            <Card className="border-green-953">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="p-2 bg-green-950 rounded-full mr-4">
-                    <Clock className="h-5 w-5 text-green-952" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Режим работы</h3>
-                    <p className="text-gray-600">Пн-Пт: 9:00-18:00</p>
-                    <p className="text-gray-600">Сб-Вс: по договоренности</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-
+        <div className="lg:grid-cols-3 gap-8">
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <Card className="border-green-953">
@@ -208,7 +142,7 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="your@email.com" 
+                      placeholder="email@example.ru" 
                       className="border-gray-300"
                     />
                   </div>
@@ -273,6 +207,10 @@ export default function Contact() {
             </Card>
           </div>
         </div>
+      </div>
+      <div className="flex flex-col gap-10 mt-10 justify-self-center gap 16 sm:flex-row ">
+        <img className="rounded-xl max-w-56 md:max-w-40" src="/assets/telegram-qr.jpg" alt="QR код телеграм канала"/>
+        <img className="rounded-xl max-w-56 md:max-w-40" src="/assets/telegram-qr.jpg" alt="QR код телеграм канала"/>
       </div>
     </section>
   );

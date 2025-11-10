@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import e from 'cors';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
@@ -17,7 +18,7 @@ export default function Header() {
             />
             <div>
               <h1 className="text-xl font-medium text-gray-900">СОЮЗ ВОЕННЫХ ЮРИСТОВ</h1>
-              <p className="text-sm text-green-950 -mt-[5px]">Защита прав военнослужащих</p>
+              <p className="text-sm text-green-950 -mt-[5px]">Защита ваших прав - наш приоритет</p>
             </div>
           </div>
 
@@ -29,12 +30,14 @@ export default function Header() {
             <a href="#about" className="text-gray-700 hover:text-green-950 transition-colors">
               О нас
             </a>
-            <a href="#contact" className="text-gray-700 hover:text-green-950 transition-colors">
+            <a href="#footer" className="text-gray-700 hover:text-green-950 transition-colors">
               Контакты
             </a>
-            <Button className="bg-green-951 hover:bg-green-955">
-              Консультация
-            </Button>
+            <a href="#contact" >
+              <Button className="bg-green-951 hover:bg-green-955">
+                Консультация
+              </Button>
+            </a>
           </nav>
 
           {/* Mobile menu button */}
@@ -50,18 +53,35 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              <a href="#services" className="text-gray-700 hover:text-green-950 transition-colors">
+              <a 
+                href="#services" 
+                className="text-gray-700 hover:text-green-950 transition-colors"
+                onClick={(e) => setIsMenuOpen(!isMenuOpen)}
+              >
                 Услуги
               </a>
-              <a href="#about" className="text-gray-700 hover:text-green-950 transition-colors">
+              <a 
+                href="#about" 
+                className="text-gray-700 hover:text-green-950 transition-colors" 
+                onClick={(e) => setIsMenuOpen(!isMenuOpen)}
+              >
                 О нас
               </a>
-              <a href="#contact" className="text-gray-700 hover:text-green-950 transition-colors">
+              <a 
+                href="#footer" 
+                className="text-gray-700 hover:text-green-950 transition-colors"
+                onClick={(e) => setIsMenuOpen(!isMenuOpen)}
+              >
                 Контакты
               </a>
-              <Button className="bg-green-951 hover:bg-green-955 w-full">
-                Консультация
-              </Button>
+              <a href="#contact">
+                <Button 
+                  className="bg-green-951 hover:bg-green-955 w-full" 
+                  onClick={(e) => setIsMenuOpen(!isMenuOpen)}
+                >
+                  Консультация
+                </Button>
+              </a>
             </nav>
           </div>
         )}
