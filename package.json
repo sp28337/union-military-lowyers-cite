@@ -7,7 +7,7 @@
     "build": "vite build",
     "lint": "eslint --quiet ./src",
     "preview": "vite preview",
-    "server": "tsx watch server.ts"
+    "server": "tsx watch server.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
