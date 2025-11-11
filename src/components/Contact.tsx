@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 
 export default function Contact() {
@@ -208,7 +207,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-10 mt-10 justify-self-center gap 16 sm:flex-row ">
+      <div className="flex flex-col mt-10 justify-center sm:flex-row ">
         <img className="rounded-xl max-w-56 md:max-w-40" src="/assets/telegram-qr.jpg" alt="QR код телеграм канала"/>
         <img className="rounded-xl max-w-56 md:max-w-40" src="/assets/max-qr-small.png" alt="QR код max чата"/>
       </div>
