@@ -207,9 +207,9 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col mt-10 justify-center sm:flex-row ">
-        <img className="rounded-xl max-w-56 md:max-w-40" src="/assets/telegram-qr.jpg" alt="QR код телеграм канала"/>
-        <img className="rounded-xl max-w-56 md:max-w-40" src="/assets/max-qr-small.png" alt="QR код max чата"/>
+      <div className="flex flex-col mt-10 justify-center max-w-[1000px] m-auto sm:flex-row ">
+        <img className="m-auto rounded-xl max-w-56 md:max-w-40" src="/assets/telegram-qr.jpg" alt="QR код телеграм канала"/>
+        <img className="m-auto rounded-xl max-w-56 md:max-w-40" src="/assets/max-qr-small.png" alt="QR код max чата"/>
       </div>
     </section>
   );
