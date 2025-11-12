@@ -6,6 +6,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
+interface FormErrors {
+  name?: string;
+  phone?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,6 +26,48 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [messageStatus, setMessageStatus] = useState('');
   const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  // Валидация формы
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    // Проверка имени
+    if (!formData.name.trim()) {
+      newErrors.name = 'Пожалуйста, введите Ваше имя';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Имя должно содержать минимум 2 символа';
+    }
+
+    // Проверка телефона (формат: +7 (XXX) XXX-XX-XX)
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Пожалуйста, введите номер телефона';
+    } else if (!/^\+7\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}$/.test(formData.phone)) {
+      newErrors.phone = 'Неверный формат. Используйте: +7 (XXX) XXX-XX-XX';
+    }
+
+    // Проверка email (если заполнен)
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Пожалуйста, введите корректный email';
+    }
+
+    // Проверка темы обращения
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Пожалуйста, укажите тему обращения';
+    } else if (formData.subject.trim().length < 5) {
+      newErrors.subject = 'Тема должна содержать минимум 5 символов';
+    }
+
+    // Проверка сообщения
+    if (!formData.message.trim()) {
+      newErrors.message = 'Пожалуйста, опишите свою проблему';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Сообщение должно содержать минимум 10 символов';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   // Обработка изменения полей формы
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -27,31 +76,39 @@ export default function Contact() {
       ...prev,
       [name]: value
     }));
+    
+    // Очищаем ошибку для этого поля при изменении
+    if (errors[name as keyof FormErrors]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: undefined
+      }));
+    }
   };
 
   // Отправка формы
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     setMessageStatus('');
 
-    // Валидация обязательных полей
-    if (!formData.name || !formData.phone || !formData.subject || !formData.message) {
-      setMessageStatus('Пожалуйста, заполните все обязательные поля (отмечены *)');
+    // Проверяем валидность формы
+    if (!validateForm()) {
+      setMessageStatus('Пожалуйста, исправьте ошибки в форме');
       setMessageType('error');
-      setLoading(false);
       return;
     }
 
+    setLoading(true);
+
     try {
       const response = await fetch(
-      'http://localhost:3001/api/contact', 
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      }
-    );
+        'http://localhost:3001/api/contact',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        }
+      );
 
       if (response.ok) {
         setMessageStatus('✅ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
@@ -64,6 +121,7 @@ export default function Contact() {
           subject: '',
           message: ''
         });
+        setErrors({});
       } else {
         const error = await response.json();
         setMessageStatus(`❌ Ошибка: ${error.error || 'Не удалось отправить заявку'}`);
@@ -100,86 +158,101 @@ export default function Contact() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Поле имени */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Имя: *
                       </label>
-                      <Input 
+                      <Input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Ваше имя" 
-                        className="border-gray-300"
-                        required
+                        placeholder="Ваше имя"
+                        className={`border-gray-300 ${errors.name ? 'border-red-500 focus:ring-red-500' : ''}`}
                       />
+                      {errors.name && (
+                        <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                      )}
                     </div>
+
+                    {/* Поле телефона */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Телефон: *
                       </label>
-                      <Input 
+                      <Input
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+7 (XXX) XXX-XX-XX" 
-                        className="border-gray-300"
-                        required
+                        placeholder="+7 (XXX) XXX-XX-XX"
+                        className={`border-gray-300 ${errors.phone ? 'border-red-500 focus:ring-red-500' : ''}`}
                       />
+                      {errors.phone && (
+                        <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+                      )}
                     </div>
                   </div>
-                  
+
+                  {/* Поле email */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Email:
                     </label>
-                    <Input 
+                    <Input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="email@example.ru" 
-                      className="border-gray-300"
+                      placeholder="email@example.ru"
+                      className={`border-gray-300 ${errors.email ? 'border-red-500 focus:ring-red-500' : ''}`}
                     />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                    )}
                   </div>
 
-
+                  {/* Поле темы обращения */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Тема обращения: *
                     </label>
-                    <Input 
+                    <Input
                       type="text"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Кратко опишите суть вопроса" 
-                      className="border-gray-300"
-                      required
+                      placeholder="Кратко опишите суть вопроса"
+                      className={`border-gray-300 ${errors.subject ? 'border-red-500 focus:ring-red-500' : ''}`}
                     />
+                    {errors.subject && (
+                      <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
+                    )}
                   </div>
 
-
+                  {/* Поле сообщения */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Сообщение: *
                     </label>
-                    <Textarea 
+                    <Textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Подробно опишите вашу ситуацию..." 
+                      placeholder="Подробно опишите вашу ситуацию..."
                       rows={5}
-                      className="border-gray-300"
-                      required
+                      className={`border-gray-300 ${errors.message ? 'border-red-500 focus:ring-red-500' : ''}`}
                     />
+                    {errors.message && (
+                      <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                    )}
                   </div>
 
-
-                  <Button 
+                  {/* Кнопка отправки */}
+                  <Button
                     type="submit"
                     disabled={loading}
                     className="w-full bg-green-951 hover:bg-green-955 text-lg py-3 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -189,11 +262,13 @@ export default function Contact() {
 
                   {/* Сообщение статуса */}
                   {messageStatus && (
-                    <div className={`p-4 rounded-lg text-center text-sm font-medium ${
-                      messageType === 'success' 
-                        ? 'bg-green-50 text-green-800 border border-green-200' 
-                        : 'bg-red-50 text-red-800 border border-red-200'
-                    }`}>
+                    <div
+                      className={`p-4 rounded-lg text-center text-sm font-medium ${
+                        messageType === 'success'
+                          ? 'bg-green-50 text-green-800 border border-green-200'
+                          : 'bg-red-50 text-red-800 border border-red-200'
+                      }`}
+                    >
                       {messageStatus}
                     </div>
                   )}
@@ -207,9 +282,10 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col mt-10 justify-center max-w-[1000px] m-auto sm:flex-row ">
-        <img className="m-auto rounded-xl max-w-56 md:max-w-40" src="/assets/telegram-qr.jpg" alt="QR код телеграм канала"/>
-        <img className="m-auto rounded-xl max-w-56 md:max-w-40" src="/assets/max-qr-small.png" alt="QR код max чата"/>
+
+      <div className="flex flex-col mt-10 justify-center max-w-[1000px] m-auto sm:flex-row">
+        <img className="m-auto rounded-xl max-w-56 md:max-w-40" src="/assets/telegram-qr.jpg" alt="QR код телеграм канала" />
+        <img className="m-auto rounded-xl max-w-56 md:max-w-40" src="/assets/max-qr-small.png" alt="QR код max чата" />
       </div>
     </section>
   );
