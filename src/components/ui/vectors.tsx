@@ -1,9 +1,11 @@
 export const TelegramLogoSVG = () => {
     return (
         <svg 
-            className="h-6 w-6 mr-2"
+            className="mr-2"
             role="presentation" 
-            viewBox="0 0 100 100" 
+            viewBox="0 0 100 100"
+            width="24px" 
+            height="24px"  
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
         > 
@@ -20,9 +22,11 @@ export const TelegramLogoSVG = () => {
 export const MaxLogoSVG = () => {
     return (
         <svg 
-            className="h-[24px] w-[24px] mr-2"
+            className="mr-2"
             role="presentation"
             viewBox="-4 -2 50 50" 
+            width="24px" 
+            height="24px" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
         > 
@@ -38,8 +42,10 @@ export const MaxLogoSVG = () => {
 export const VKLogoSVG = () => {
     return (
         <svg 
-            className="h-6 w-6 mr-2"
+            className="mr-2"
             role="presentation" 
+            width="24px" 
+            height="24px" 
             viewBox="0 0 100 100" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
@@ -55,36 +61,19 @@ export const VKLogoSVG = () => {
 
 export const LocationLogoSVG = () => {
     return (
-        <svg 
-            className="h-6 w-6 mr-2"
-            role="presentation" 
-            viewBox="0 0 100 100" 
-            fill="none" 
+        <svg
+            version="1.1" 
+            className="mr-2"
             xmlns="http://www.w3.org/2000/svg"
-        > 
-            <defs>
-                <filter id="blurPin">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" />
-                </filter>
-            </defs>
-            
-            {/* Капля пина с размытыми краями */}
-            <path 
-                d="M50 10 C30 10 15 25 15 45 C15 70 50 95 50 95 C50 95 85 70 85 45 C85 25 70 10 50 10 Z"
-                fill="#ffffff"
-                filter="url(#blurPin)"
-                opacity="0.95"
-            />
-            
-            {/* Внутренний круг */}
-            <circle 
-                cx="50" 
-                cy="45" 
-                r="12" 
-                fill="#2d4955"
-                filter="url(#blurPin)"
-                opacity="0.98"
-            />
+            width="24px" 
+            height="24px" 
+            viewBox="0 0 100 100"
+        >
+        <path 
+            d="M 45 0 C 25.463 0 9.625 15.838 9.625 35.375 c 0 8.722 3.171 16.693 8.404 22.861 L 45 90 l 26.97 -31.765 c 5.233 -6.167 8.404 -14.139 8.404 -22.861 C 80.375 15.838 64.537 0 45 0 z M 45 48.705 c -8.035 0 -14.548 -6.513 -14.548 -14.548 c 0 -8.035 6.513 -14.548 14.548 -14.548 s 14.548 6.513 14.548 14.548 C 59.548 42.192 53.035 48.705 45 48.705 z"
+            fill="#ffffff" 
+        >
+        </path>
         </svg>
     )
 }
