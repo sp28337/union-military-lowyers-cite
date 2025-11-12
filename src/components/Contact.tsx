@@ -14,6 +14,32 @@ interface FormErrors {
   message?: string;
 }
 
+// 📱 Функция для форматирования номера телефона
+const formatPhoneNumber = (value: string): string => {
+  // Оставляем только цифры
+  const digits = value.replace(/\D/g, '');
+  
+  if (digits.length === 0) {
+    return '+7 ';
+  }
+  
+  // Берём максимум 11 цифр (7 + 10 цифр номера)
+  const limitedDigits = digits.slice(0, 11);
+  
+  // Форматируем: +7 (XXX) XXX-XX-XX
+  if (limitedDigits.length <= 1) {
+    return '+7 ';
+  } else if (limitedDigits.length <= 4) {
+    return `+7 (${limitedDigits.slice(1)}`;
+  } else if (limitedDigits.length <= 7) {
+    return `+7 (${limitedDigits.slice(1, 4)}) ${limitedDigits.slice(4)}`;
+  } else if (limitedDigits.length <= 9) {
+    return `+7 (${limitedDigits.slice(1, 4)}) ${limitedDigits.slice(4, 7)}-${limitedDigits.slice(7)}`;
+  } else {
+    return `+7 (${limitedDigits.slice(1, 4)}) ${limitedDigits.slice(4, 7)}-${limitedDigits.slice(7, 9)}-${limitedDigits.slice(9, 11)}`;
+  }
+};
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -72,10 +98,20 @@ export default function Contact() {
   // Обработка изменения полей формы
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    // Специальная обработка для телефона - форматируем при вводе
+    if (name === 'phone') {
+      const formatted = formatPhoneNumber(value);
+      setFormData(prev => ({
+        ...prev,
+        phone: formatted
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
     
     // Очищаем ошибку для этого поля при изменении
     if (errors[name as keyof FormErrors]) {
