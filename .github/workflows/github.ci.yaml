@@ -32,11 +32,23 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 5. Собираем проект
+      # 🆕 5. Создаём .env файл из GitHub Secrets
+      - name: Create .env file
+        run: |
+          cat > .env << EOF
+          EMAIL_USER=${{ secrets.EMAIL_USER }}
+          VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}
+          EOF
+          echo "✅ .env создан"
+
+      # 6. Собираем проект (теперь с правильными переменными)
       - name: Build project
         run: pnpm build
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
 
-      # 6. Загружаем dist на сервер
+      # 7. Загружаем dist на сервер
       - name: Upload dist to server
         uses: appleboy/scp-action@master
         with:
@@ -48,7 +60,7 @@ jobs:
           target: "/home/sp28337/spa_build/"
           rm: true
 
-      # 7. Выполняем команды на сервере
+      # 8. Выполняем команды на сервере
       - name: Deploy on server
         uses: appleboy/ssh-action@master
         with:
